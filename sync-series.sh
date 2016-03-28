@@ -11,6 +11,8 @@ function sync_folder {
     distant_folder=${SEEDBOX_PATH_SERIES}$1
     local_folder=${LOCAL_PATH_SERIES}$1
 
+    echo "\n$1\n";
+
     # Create folder if not exists
     if [ ! -d "${local_folder}" ]; then
         mkdir -p "${local_folder}"
