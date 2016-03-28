@@ -51,3 +51,4 @@ config.ini
 tests/
 vagrant/
 config/*
+!config/config.sample.ini
