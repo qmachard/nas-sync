@@ -21,7 +21,7 @@ function sync_folder {
     # Escape spaces
     distant_folder=$( echo "${distant_folder}" | sed 's/ /\\ /g' )
 
-    rsync -azv "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${distant_folder}" "${local_folder}"
+    rsync -azv --progress "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${distant_folder}" "${local_folder}"
 }
 
 # Is already launch
