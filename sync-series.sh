@@ -24,6 +24,15 @@ function sync_folder {
     rsync -azv "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${distant_folder}" "${local_folder}"
 }
 
+# Is already launch
+if test -f /tmp/sync-series
+then
+	echo "[Error] This script is already running"
+	exit 3
+else
+	touch /tmp/sync-series
+fi
+
 echo "\n######## Starting sync series\n"
 
 while read line
@@ -32,3 +41,5 @@ do
 done < ${list}
 
 echo "\n######## Ending sync series\n"
+
+rm /tmp/sync-series
