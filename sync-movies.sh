@@ -2,8 +2,8 @@
 
 . ./config/config.ini
 
-echo "\n######## Starting sync movies\n" >> ./log/movies.log
+echo "\n######## Starting sync movies\n"
 
-rsync -azv --exclude "couchpotato" "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${SEEDBOX_PATH_MOVIES}" "${LOCAL_PATH_MOVIES}" >> ./log/movies.log
+rsync -azv --exclude "couchpotato" "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${SEEDBOX_PATH_MOVIES}" "${LOCAL_PATH_MOVIES}"
 
-echo "\n######## Ending sync movies\n" >> ./log/movies.log
+echo "\n######## Ending sync movies\n"
