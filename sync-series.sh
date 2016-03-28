@@ -19,10 +19,14 @@ function sync_folder {
     # Escape spaces
     distant_folder=$( echo "${distant_folder}" | sed 's/ /\\ /g' )
 
-    rsync -azv "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${distant_folder}" "${local_folder}"
+    rsync -azv "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${distant_folder}" "${local_folder}" >> ./log/series.log
 }
+
+echo "\n######## Starting sync series\n" >> ./log/series.log
 
 while read line
 do
    sync_folder "${line}"
 done < ${list}
+
+echo "\n######## Ending sync series\n" >> ./log/series.log
