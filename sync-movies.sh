@@ -11,6 +11,11 @@ else
 	touch /tmp/sync-movies
 fi
 
+# Create folder if not exists
+if [ ! -d "${LOCAL_PATH_MOVIES}" ]; then
+    mkdir -p "${LOCAL_PATH_MOVIES}"
+fi
+
 echo "\n######## Starting sync movies\n"
 
 rsync -azv --progress --exclude "couchpotato" "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${SEEDBOX_PATH_MOVIES}" "${LOCAL_PATH_MOVIES}"
