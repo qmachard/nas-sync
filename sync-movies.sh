@@ -1,6 +1,8 @@
 #!/bin/sh
 
-. ./config/config.ini
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. ${ROOT}/config/config.ini
 
 # Is already launch
 if test -f /tmp/sync-movies
