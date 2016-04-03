@@ -1,8 +1,9 @@
 #!/bin/sh
 
-. ./config/config.ini
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. ${ROOT}/config/config.ini
 
-list="./config/series.txt"
+list="${ROOT}/config/series.txt"
 
 function sync_folder {
     local distant_folder
