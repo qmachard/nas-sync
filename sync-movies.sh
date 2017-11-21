@@ -20,7 +20,12 @@ fi
 
 echo "\n######## Starting sync movies\n"
 
-rsync -azv --exclude "couchpotato" "${SEEDBOX_USER}"@"${SEEDBOX_HOST}":"${SEEDBOX_PATH_MOVIES}" "${LOCAL_PATH_MOVIES}"
+cd ${LOCAL_PATH_MOVIES}
+
+lftp ftp://${SEEDBOX_USER}:${SEEDBOX_PASSWORD}@${SEEDBOX_HOST} -e "
+    set ssl:verify-certificate false;
+    cd /torrents/movies/;
+    mirror . --continue --verbose --exclude=.*\.jpe?g --exclude=.*\.png --exclude=.*\.gif;"
 
 echo "\n######## Ending sync movies\n"
 
