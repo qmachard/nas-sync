@@ -24,7 +24,7 @@ cd ${LOCAL_PATH_MOVIES}
 
 lftp ftp://${SEEDBOX_USER}:${SEEDBOX_PASSWORD}@${SEEDBOX_HOST} -e "
     set ssl:verify-certificate false;
-    cd /torrents/movies/;
+    cd ${SEEDBOX_PATH_MOVIES};
     mirror . --continue --verbose --exclude=.*\.jpe?g --exclude=.*\.png --exclude=.*\.gif;"
 
 echo "\n######## Ending sync movies\n"

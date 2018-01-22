@@ -9,7 +9,7 @@
 * Clone this repos
 
 ```bash
-$ git clone git@bitbucket.org:qmachard/nas-sync.git
+$ git clone https://github.com/qmachard/nas-sync.git
 $ cd ./nas-sync
 ```
 
